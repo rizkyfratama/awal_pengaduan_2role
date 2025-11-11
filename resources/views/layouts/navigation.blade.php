@@ -1,119 +1,48 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+<div class="p-4 space-y-2">
+    
+    <a href="{{ route('dashboard') }}" 
+       class="flex items-center w-full px-4 py-2 rounded-lg transition-colors duration-200 
+              {{ request()->routeIs('dashboard') 
+                 ? 'bg-green-600 text-white' 
+                 : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+        <svg class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        {{ __('Beranda') }}
+    </a>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Beranda') }}
-                    </x-nav-link>
-                    
-                    <x-nav-link :href="route('pengaduan.create')" :active="request()->routeIs('pengaduan.create')">
-                        {{ __('Buat Pengaduan') }}
-                    </x-nav-link>
-                    
-                    <x-nav-link :href="route('lacak.index')" :active="request()->routeIs('lacak.index')">
-                        {{ __('Lacak Pengaduan') }}
-                    </x-nav-link>
-                    
-                    <x-nav-link :href="route('pengaduan.saya')" :active="request()->routeIs('pengaduan.saya')">
-                        {{ __('Pengaduan Saya') }}
-                    </x-nav-link>
-                    
-                    <x-nav-link :href="route('kontak')" :active="request()->routeIs('kontak')">
-                        {{ __('Kontak Dinas') }}
-                    </x-nav-link>
-                </div>
-            </div>
+    <a href="{{ route('pengaduan.create') }}" 
+       class="flex items-center w-full px-4 py-2 rounded-lg transition-colors duration-200 
+              {{ request()->routeIs('pengaduan.create') 
+                 ? 'bg-green-600 text-white' 
+                 : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+        <svg class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+        {{ __('Buat Pengaduan') }}
+    </a>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+    <a href="{{ route('lacak.index') }}" 
+       class="flex items-center w-full px-4 py-2 rounded-lg transition-colors duration-200 
+              {{ request()->routeIs('lacak.index') 
+                 ? 'bg-green-600 text-white' 
+                 : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+        <svg class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        {{ __('Lacak Pengaduan') }}
+    </a>
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
+    <a href="{{ route('pengaduan.saya') }}" 
+       class="flex items-center w-full px-4 py-2 rounded-lg transition-colors duration-200 
+              {{ request()->routeIs('pengaduan.saya') 
+                 ? 'bg-green-600 text-white' 
+                 : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+        <svg class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        {{ __('Pengaduan Saya') }}
+    </a>
 
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+    <a href="{{ route('kontak') }}" 
+       class="flex items-center w-full px-4 py-2 rounded-lg transition-colors duration-200 
+              {{ request()->routeIs('kontak') 
+                 ? 'bg-green-600 text-white' 
+                 : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+        <svg class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.3 1.15a11.042 11.042 0 005.57 5.57l1.15-2.3a1 1 0 011.21-.502l4.493 1.498A1 1 0 0119 16.72V20a2 2 0 01-2 2h-1C9.716 22 3 15.284 3 7V5z"></path></svg>
+        {{ __('Kontak Dinas') }}
+    </a>
 
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Beranda') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('pengaduan.create')" :active="request()->routeIs('pengaduan.create')">
-                {{ __('Buat Pengaduan') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('lacak.index')" :active="request()->routeIs('lacak.index')">
-                {{ __('Lacak Pengaduan') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('pengaduan.saya')" :active="request()->routeIs('pengaduan.saya')">
-                {{ __('Pengaduan Saya') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('kontak')" :active="request()->routeIs('kontak')">
-                {{ __('Kontak Dinas') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
+</div>
