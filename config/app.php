@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Makassar', // <-- PERUBAHAN 1: Diubah dari 'UTC'
 
     /*
     |--------------------------------------------------------------------------
@@ -78,11 +78,11 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'id'), // <-- PERUBAHAN 2: Diubah dari 'en'
 
-    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'id'), // <-- PERUBAHAN 2: Diubah dari 'en'
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'id_ID'), // <-- PERUBAHAN 2: Diubah dari 'en_US'
 
     /*
     |--------------------------------------------------------------------------
