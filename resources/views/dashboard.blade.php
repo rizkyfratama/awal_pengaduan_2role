@@ -38,7 +38,7 @@
             </div>
 
             <div class="mt-12">
-                <h3 class="text-lg font-semibold mb-4 text-gray-700 text-center">Statistik Laporan Anda</h3>
+                <h3 class="text-lg font-semibold mb-4 text-gray-700 text-center">Statistik Laporan Yang Diterima dan Ditangani DP3A Kota Banjarmasin</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 text-center">
