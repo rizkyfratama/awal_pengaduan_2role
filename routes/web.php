@@ -3,14 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MasyarakatController; // <-- Buat ini
-use App\Http\Controllers\PetugasController;   // <-- Buat ini
+use App\Http\Controllers\PetugasController; // <-- Buat ini
+
+// Redirect root ke /login agar langsung menuju halaman login
+Route::get('/', function () {
+    return redirect('/login');
+});
 
 // === RUTE PUBLIK (Bisa diakses tanpa login) ===
-Route::get('/', [MasyarakatController::class, 'beranda'])->name('beranda');
+Route::get('/beranda', [MasyarakatController::class, 'beranda'])->name('beranda');
 Route::get('/kontak-dinas', [MasyarakatController::class, 'kontak'])->name('kontak');
 Route::get('/lacak-pengaduan', [MasyarakatController::class, 'lacakIndex'])->name('lacak.index');
 Route::post('/lacak-pengaduan', [MasyarakatController::class, 'lacakShow'])->name('lacak.show');
-
 
 // === RUTE MASYARAKAT (Harus login & role: masyarakat) ===
 Route::middleware(['auth', 'verified', 'role:masyarakat'])->group(function () {
@@ -26,10 +30,8 @@ Route::middleware(['auth', 'verified', 'role:masyarakat'])->group(function () {
     Route::get('/pengaduan-saya', [MasyarakatController::class, 'showPengaduanSaya'])->name('pengaduan.saya');
 });
 
-
 // === RUTE PETUGAS (Harus login & role: petugas) ===
 Route::middleware(['auth', 'verified', 'role:petugas'])->prefix('petugas')->name('petugas.')->group(function () {
-    
     Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard');
     
     // Manajemen Pengaduan
@@ -42,7 +44,6 @@ Route::middleware(['auth', 'verified', 'role:petugas'])->prefix('petugas')->name
     // Proses Kirim Tanggapan
     Route::post('/pengaduan/{pengaduan}/tanggapan', [PetugasController::class, 'storeTanggapan'])->name('tanggapan.store');
 });
-
 
 // === RUTE PROFIL (Bawaan Breeze, untuk semua role) ===
 Route::middleware('auth')->group(function () {
